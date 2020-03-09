@@ -73,9 +73,8 @@ int main(int C, char **V)
 
 	for( ; ; ) {
 		for( i=1; i<C; i++ ) {
-			thread *X = new thread(gather, V[i]);
-			X->detach();
-			delete X;
+			thread X(gather, V[i]);
+			X.detach();
 		}
 
 		sleep(5);
